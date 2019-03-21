@@ -9,7 +9,7 @@ class InputStringValidator
      * Function to validate the input string
      * @return boolean
      */
-    public static function isValid(string $input): mixed
+    public static function isValid(string $input)
     {
         // check if not string
         if (!is_string($input)) {

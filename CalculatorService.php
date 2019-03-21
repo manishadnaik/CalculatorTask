@@ -37,8 +37,11 @@ class CalculatorService
         // replace seperators with comma
         $numbersString = str_replace($seperators,",",$input);
 
-        // remove if any characters or empty values are present in array
-        return array_filter(explode(',', $numbersString), 'is_numeric');
+        function isNumericAndBelowThousand($var) {
+            return (is_numeric($var) && $var < 1000);
+        }
+        // filter and return if any alphabetc or empty values are present in array
+        return array_filter(explode(',', $numbersString), 'isNumericAndBelowThousand');
     }
 }
 ?>
