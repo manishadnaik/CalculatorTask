@@ -28,11 +28,17 @@ class CalculatorService
     public function prepareNumbers(string $input): array 
     {
         // Check if given input is not alphabetic string
-        if (!is_string($input))
+        if (!is_string($input)) {
             throw new \InvalidArgumentException('Parameters must be single string of input seperated by commas(,)');
-        
-        // return array of numbers
-        return explode(',', $input);
+        }
+
+        // seperators in input string
+        $seperators = array('\n', 'n');
+        // replace seperators with comma
+        $numbersString = str_replace($seperators,",",$input);
+
+        // remove if any characters or empty values are present in array
+        return array_filter(explode(',', $numbersString), 'is_numeric');
     }
 }
 ?>

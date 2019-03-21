@@ -12,9 +12,10 @@ class InputStringValidator
     public static function isValid(string $numbers) 
     {    
         // check if not string
-        if (!is_string($numbers))
+        if (!is_string($numbers)) {
             return false;
-            
+        }
+
         // return true if valid
         return true;
     }
