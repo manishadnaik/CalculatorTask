@@ -33,7 +33,7 @@ class CalculatorService
         }
 
         // seperators in input string
-        $seperators = array('\n', 'n');
+        $seperators = array('\n', 'n', '\\', '\\;', ';');
         // replace seperators with comma
         $numbersString = str_replace($seperators,",",$input);
 
