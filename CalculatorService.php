@@ -9,7 +9,7 @@ class CalculatorService
     /**
      * Function to perform sum operation on given input
      * 
-     * @param string $input The string og numbers passed to perform sum
+     * @param string $input The string fg numbers passed to perform sum
      * @return integer
      */
     public function sum(string $input): int 
@@ -20,8 +20,21 @@ class CalculatorService
     }
 
     /**
-     * Function to prepare numbers from given numbers string
+     * Function to perform multiplication operation on given input
      * 
+     * @param string $input The string of numbers passed to perform sum
+     * @return integer
+     */
+    public function multiply($input): int
+    {
+        $numberArray = $this->prepareNumbers($input);
+
+        return array_product($numberArray);
+    }
+
+    /**
+     * Function to prepare numbers from given numbers string
+     *
      * @param string $input The string of numbers passed to perform sum
      * @return array
      */
@@ -40,8 +53,9 @@ class CalculatorService
         function isNumericAndBelowThousand($var) {
             return (is_numeric($var) && $var < 1000);
         }
-        // filter and return if any alphabetc or empty values are present in array
+        // remove if any characters or empty values are present in array
         return array_filter(explode(',', $numbersString), 'isNumericAndBelowThousand');
+
     }
 }
 ?>
