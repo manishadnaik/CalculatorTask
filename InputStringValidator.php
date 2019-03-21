@@ -27,9 +27,9 @@ class InputStringValidator
             return($var < 0);
         }
         // remove if any characters or empty values are present in array
-        $negativeNUmbers = array_filter(explode(',', $numbersString), "checkNegative");
-        if(count($negativeNUmbers)) {
-            throw new \InvalidArgumentException('Negative numbers not allowed.');
+        $negativeNumbers = array_filter(explode(',', $numbersString), "checkNegative");
+        if(count($negativeNumbers)) {
+            throw new \InvalidArgumentException('Negative numbers (' . implode(',', $negativeNumbers) . ') not allowed.');
         }
 
         // return true if valid
