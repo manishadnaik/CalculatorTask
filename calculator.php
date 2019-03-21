@@ -12,12 +12,13 @@ if (empty($argv[2])) {
     return print_r('Output: 0' . PHP_EOL);
 }
 
-// validate input string
-if (!InputStringValidator::isValid($argv[2])) {
-    return print_r('Given number string is not valid' . PHP_EOL);
-}
-
 try {
+    // validate input string
+    if (!InputStringValidator::isValid($argv[2])) {
+        return print_r('Given number string is not valid' . PHP_EOL);
+    }
+
+
     // else create new instance of calculator and perform the sum operation
     $calculator = new CalculatorService();
 
